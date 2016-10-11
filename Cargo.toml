@@ -4,5 +4,5 @@ version = "0.1.0"
 authors = ["yamakaky"]
 
 [dependencies]
-libmnl-sys = { path  = "../libmnl-sys" }
+libmnl-sys = { git  = "https://github.com/Yamakaky/libmnl-sys" }
 libc = "0.2"
