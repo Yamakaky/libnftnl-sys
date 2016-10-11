@@ -1,0 +1,8 @@
+[package]
+name = "libnftnl-sys"
+version = "0.1.0"
+authors = ["yamakaky"]
+
+[dependencies]
+libmnl-sys = { path  = "../libmnl-sys" }
+libc = "0.2"
