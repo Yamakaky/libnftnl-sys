@@ -206,37 +206,37 @@ pub enum Dup {
     SREG_DEV = 2,
 }
 extern "C" {
-    #[link_name = "expr_alloc"]
+    #[link_name = "nftnl_expr_alloc"]
     pub fn alloc(name: *const c_char) -> *mut expr;
-    #[link_name = "expr_free"]
+    #[link_name = "nftnl_expr_free"]
     pub fn free(expr: *const expr);
-    #[link_name = "expr_is_set"]
+    #[link_name = "nftnl_expr_is_set"]
     pub fn is_set(expr: *const expr, type_: u16) -> u8;
-    #[link_name = "expr_set"]
+    #[link_name = "nftnl_expr_set"]
     pub fn set(expr: *mut expr, type_: u16, data: *const c_void, data_len: u32);
-    #[link_name = "expr_set_u8"]
+    #[link_name = "nftnl_expr_set_u8"]
     pub fn set_u8(expr: *mut expr, type_: u16, data: u8);
-    #[link_name = "expr_pub"]
+    #[link_name = "nftnl_expr_pub"]
     pub fn set_u16(expr: *mut expr, type_: u16, data: u16);
-    #[link_name = "expr_set_u32"]
+    #[link_name = "nftnl_expr_set_u32"]
     pub fn set_u32(expr: *mut expr, type_: u16, data: u32);
-    #[link_name = "expr_set_u64"]
+    #[link_name = "nftnl_expr_set_u64"]
     pub fn set_u64(expr: *mut expr, type_: u16, data: u64);
-    #[link_name = "expr_set_str"]
+    #[link_name = "nftnl_expr_set_str"]
     pub fn set_str(expr: *mut expr, type_: u16, str: *const c_char);
-    #[link_name = "expr_get"]
+    #[link_name = "nftnl_expr_get"]
     pub fn get(expr: *const expr, type_: u16, data_len: *mut u32) -> *const c_void;
-    #[link_name = "expr_get_u8"]
+    #[link_name = "nftnl_expr_get_u8"]
     pub fn get_u8(expr: *const expr, type_: u16) -> u8;
-    #[link_name = "expr_get_u16"]
+    #[link_name = "nftnl_expr_get_u16"]
     pub fn get_u16(expr: *const expr, type_: u16) -> u16;
-    #[link_name = "expr_get_u32"]
+    #[link_name = "nftnl_expr_get_u32"]
     pub fn get_u32(expr: *const expr, type_: u16) -> u32;
-    #[link_name = "expr_get_u64"]
+    #[link_name = "nftnl_expr_get_u64"]
     pub fn get_u64(expr: *const expr, type_: u16) -> u64;
-    #[link_name = "expr_get_str"]
+    #[link_name = "nftnl_expr_get_str"]
     pub fn get_str(expr: *const expr, type_: u16) -> *const c_char;
-    #[link_name = "expr_snprintf"]
+    #[link_name = "nftnl_expr_snprintf"]
     pub fn snprintf(buf: *mut c_char,
                     buflen: usize,
                     expr: *const expr,
