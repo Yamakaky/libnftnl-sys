@@ -26,79 +26,79 @@ pub enum attr {
 pub enum list { }
 pub enum list_iter { }
 extern "C" {
-    #[link_name = "alloc"]
+    #[link_name = "nftnl_table_alloc"]
     pub fn alloc() -> *mut table;
-    #[link_name = "free"]
+    #[link_name = "nftnl_table_free"]
     pub fn free(arg1: *const table);
-    #[link_name = "is_set"]
+    #[link_name = "nftnl_table_is_set"]
     pub fn is_set(t: *const table, attr: u16) -> u8;
-    #[link_name = "unset"]
+    #[link_name = "nftnl_table_unset"]
     pub fn unset(t: *mut table, attr: u16);
-    #[link_name = "set"]
+    #[link_name = "nftnl_table_set"]
     pub fn set(t: *mut table, attr: u16,
                            data: *const c_void);
-    #[link_name = "set_data"]
+    #[link_name = "nftnl_table_set_data"]
     pub fn set_data(t: *mut table, attr: u16,
                                 data: *const c_void,
                                 data_len: u32);
-    #[link_name = "get"]
+    #[link_name = "nftnl_table_get"]
     pub fn get(t: *const table, attr: u16)
      -> *const c_void;
-    #[link_name = "get_data"]
+    #[link_name = "nftnl_table_get_data"]
     pub fn get_data(t: *const table, attr: u16,
                                 data_len: *mut u32)
      -> *const c_void;
-    #[link_name = "set_u8"]
+    #[link_name = "nftnl_table_set_u8"]
     pub fn set_u8(t: *mut table, attr: u16,
                               data: u8);
-    #[link_name = "set_u32"]
+    #[link_name = "nftnl_table_set_u32"]
     pub fn set_u32(t: *mut table, attr: u16,
                                data: u32);
-    #[link_name = "set_str"]
+    #[link_name = "nftnl_table_set_str"]
     pub fn set_str(t: *mut table, attr: u16,
                                str: *const c_char);
-    #[link_name = "get_u8"]
+    #[link_name = "nftnl_table_get_u8"]
     pub fn get_u8(t: *const table, attr: u16)
      -> u8;
-    #[link_name = "get_u32"]
+    #[link_name = "nftnl_table_get_u32"]
     pub fn get_u32(t: *const table, attr: u16)
      -> u32;
-    #[link_name = "get_str"]
+    #[link_name = "nftnl_table_get_str"]
     pub fn get_str(t: *const table, attr: u16)
      -> *const c_char;
-    #[link_name = "nlmsg_build_payload"]
+    #[link_name = "nftnl_table_nlmsg_build_payload"]
     pub fn nlmsg_build_payload(nlh: *mut nlmsghdr,
                                        t: *const table);
-    #[link_name = "parse"]
+    #[link_name = "nftnl_table_parse"]
     pub fn parse(t: *mut table, type_: parse_type,
                              data: *const c_char,
                              err: *mut parse_err)
      -> c_int;
-    #[link_name = "parse_file"]
+    #[link_name = "nftnl_table_parse_file"]
     pub fn parse_file(t: *mut table,
                                   type_: parse_type, fp: *mut libc::FILE,
                                   err: *mut parse_err)
      -> c_int;
-    #[link_name = "snprintf"]
+    #[link_name = "nftnl_table_snprintf"]
     pub fn snprintf(buf: *mut c_char,
                                 size: usize, t: *const table,
                                 type_: u32, flags: u32)
      -> c_int;
-    #[link_name = "fprintf"]
+    #[link_name = "nftnl_table_fprintf"]
     pub fn fprintf(fp: *mut libc::FILE, t: *const table,
                                type_: u32, flags: u32)
      -> c_int;
-    #[link_name = "nlmsg_parse"]
+    #[link_name = "nftnl_table_nlmsg_parse"]
     pub fn nlmsg_parse(nlh: *const nlmsghdr, t: *mut table)
      -> c_int;
-    #[link_name = "pub"]
+    #[link_name = "nftnl_table_pub"]
     pub fn list_alloc() -> *mut list;
-    #[link_name = "list_free"]
+    #[link_name = "nftnl_table_list_free"]
     pub fn list_free(list: *mut list);
-    #[link_name = "list_is_empty"]
+    #[link_name = "nftnl_table_list_is_empty"]
     pub fn list_is_empty(list: *const list)
      -> c_int;
-    #[link_name = "list_foreach"]
+    #[link_name = "nftnl_table_list_foreach"]
     pub fn list_foreach(table_list: *mut list,
                                     cb:
                                         ::std::option::Option<unsafe extern "C" fn(t:
@@ -109,20 +109,20 @@ extern "C" {
                                                                       c_int>,
                                     data: *mut c_void)
      -> c_int;
-    #[link_name = "list_add"]
+    #[link_name = "nftnl_table_list_add"]
     pub fn list_add(r: *mut table,
                                 list: *mut list);
-    #[link_name = "list_add_tail"]
+    #[link_name = "nftnl_table_list_add_tail"]
     pub fn list_add_tail(r: *mut table,
                                      list: *mut list);
-    #[link_name = "list_del"]
+    #[link_name = "nftnl_table_list_del"]
     pub fn list_del(r: *mut table);
-    #[link_name = "list_iter_create"]
+    #[link_name = "nftnl_table_list_iter_create"]
     pub fn list_iter_create(l: *mut list)
      -> *mut list_iter;
-    #[link_name = "list_iter_next"]
+    #[link_name = "nftnl_table_list_iter_next"]
     pub fn list_iter_next(iter: *mut list_iter)
      -> *mut table;
-    #[link_name = "list_iter_destroy"]
+    #[link_name = "nftnl_table_list_iter_destroy"]
     pub fn list_iter_destroy(iter: *const list_iter);
 }
