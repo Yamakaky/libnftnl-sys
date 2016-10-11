@@ -35,13 +35,13 @@ pub enum chain_attr {
 #[derive(Debug)]
 #[repr(C)]
 pub enum NFPROTO {
-    UNSPEC =  0,
-    INET   =  1,
-    IPV4   =  2,
-    ARP    =  3,
-    NETDEV =  5,
-    BRIDGE =  7,
-    IPV6   = 10,
+    UNSPEC = 0,
+    INET = 1,
+    IPV4 = 2,
+    ARP = 3,
+    NETDEV = 5,
+    BRIDGE = 7,
+    IPV6 = 10,
 }
 pub enum chain_list { }
 pub enum chain_list_iter { }
@@ -92,23 +92,23 @@ extern "C" {
     pub fn nlmsg_build_payload(nlh: *mut nlmsghdr, t: *const chain);
     #[link_name = "nftnl_chain_parse"]
     pub fn parse(c: *mut chain,
-                       type_: parse_type,
-                       data: *const c_char,
-                       err: *mut parse_err)
-                       -> c_int;
+                 type_: parse_type,
+                 data: *const c_char,
+                 err: *mut parse_err)
+                 -> c_int;
     #[link_name = "nftnl_chain_parse_file"]
     pub fn parse_file(c: *mut chain,
-                            type_: parse_type,
-                            fp: *mut libc::FILE,
-                            err: *mut parse_err)
-                            -> c_int;
+                      type_: parse_type,
+                      fp: *mut libc::FILE,
+                      err: *mut parse_err)
+                      -> c_int;
     #[link_name = "nftnl_chain_snprintf"]
     pub fn snprintf(buf: *mut c_char,
-                          size: usize,
-                          t: *const chain,
-                          type_: u32,
-                          flags: u32)
-                          -> c_int;
+                    size: usize,
+                    t: *const chain,
+                    type_: u32,
+                    flags: u32)
+                    -> c_int;
     #[link_name = "nftnl_chain_fprintf"]
     pub fn fprintf(fp: *mut libc::FILE, c: *const chain, type_: u32, flags: u32) -> c_int;
     #[link_name = "nftnl_chain_nlmsg_parse"]
@@ -121,9 +121,9 @@ extern "C" {
     pub fn list_is_empty(list: *const chain_list) -> c_int;
     #[link_name = "nftnl_chain_list_foreach"]
     pub fn list_foreach(chain_list: *mut chain_list,
-                              cb: foreach_callback,
-                              data: *mut c_void)
-                              -> c_int;
+                        cb: foreach_callback,
+                        data: *mut c_void)
+                        -> c_int;
     #[link_name = "nftnl_chain_list_add"]
     pub fn list_add(r: *mut chain, list: *mut chain_list);
     #[link_name = "nftnl_chain_list_add_tail"]
