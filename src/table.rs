@@ -5,7 +5,9 @@
          non_upper_case_globals,
          non_snake_case)]
 
-use libc::{self, c_int, c_void, c_char};
+use std::os::raw::*;
+
+use libc;
 use libmnl_sys::nlmsghdr;
 
 use common::*;
